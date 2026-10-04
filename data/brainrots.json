@@ -1,0 +1,102 @@
+[
+  {
+    "id": "tralalero_tralala",
+    "name": "Tralalero Tralala",
+    "description": "Трёхногая акула в найках, которая гоняет по пляжу и плевать хотела на законы физики. Кроссовки ей подарил лично бог тиктока. Плавать так и не научилась.",
+    "superpower": "Бегает по пляжу быстрее всех",
+    "rarity": "legendary",
+    "aura": 9000,
+    "image": "",
+    "sound": "tralalero_tralala.mp3"
+  },
+  {
+    "id": "bombardiro_crocodilo",
+    "name": "Bombardiro Crocodilo",
+    "description": "Крокодил-бомбардировщик, который кружит над деревнями и наводит панику. Лицензии пилота нет, совести тоже. Боится только бабушек с тапками.",
+    "superpower": "Ковровая бомбардировка мемами",
+    "rarity": "legendary",
+    "aura": 8800,
+    "image": "",
+    "sound": "bombardiro_crocodilo.mp3"
+  },
+  {
+    "id": "tung_tung_tung_sahur",
+    "name": "Tung Tung Tung Sahur",
+    "description": "Деревянное полено с битой, которое будит всех на сахур. Не проснулся после третьего «тунг» - пеняй на себя. Будильники нервно курят в сторонке.",
+    "superpower": "Будит кого угодно с первого удара",
+    "rarity": "legendary",
+    "aura": 9500,
+    "image": "",
+    "sound": "tung_tung_tung_sahur.mp3"
+  },
+  {
+    "id": "ballerina_cappuccina",
+    "name": "Ballerina Cappuccina",
+    "description": "Балерина с чашкой капучино вместо головы. Крутит фуэте и ни разу не пролила ни капли. Тайно вздыхает по Капучино Ассасино.",
+    "superpower": "Бесконечное фуэте на кофеине",
+    "rarity": "rare",
+    "aura": 6200,
+    "image": "",
+    "sound": "ballerina_cappuccina.mp3"
+  },
+  {
+    "id": "lirili_larila",
+    "name": "Lirili Larila",
+    "description": "Слон-кактус в сандалиях, который управляет временем через карманные часы. Колючий снаружи, ещё колючее внутри. Опаздывать при нём бесполезно.",
+    "superpower": "Останавливает время, когда лень",
+    "rarity": "rare",
+    "aura": 5400,
+    "image": "",
+    "sound": "lirili_larila.mp3"
+  },
+  {
+    "id": "brr_brr_patapim",
+    "name": "Brr Brr Patapim",
+    "description": "Лесное существо - наполовину обезьяна, наполовину дерево, с огромными ступнями. Живёт в чаще и страшно гордится своими ногами. Не наступай ему на корни.",
+    "superpower": "Пинок с размаха прямо из чащи",
+    "rarity": "rare",
+    "aura": 5100,
+    "image": "",
+    "sound": "brr_brr_patapim.mp3"
+  },
+  {
+    "id": "chimpanzini_bananini",
+    "name": "Chimpanzini Bananini",
+    "description": "Шимпанзе, который живёт внутри банана. Когда опасно - прячется в кожуру, когда скучно - тоже. Вечно воюет с теми, кто хочет его почистить.",
+    "superpower": "Прячется в банан за 0.2 секунды",
+    "rarity": "common",
+    "aura": 2300,
+    "image": "",
+    "sound": "chimpanzini_bananini.mp3"
+  },
+  {
+    "id": "bombombini_gusini",
+    "name": "Bombombini Gusini",
+    "description": "Гусь-истребитель, младший родственник Бомбардиро. Шипит на радары и пикирует на хлеб. В небе - гроза, на пруду - просто гусь.",
+    "superpower": "Сверхзвуковое «га-га»",
+    "rarity": "common",
+    "aura": 2700,
+    "image": "",
+    "sound": "bombombini_gusini.mp3"
+  },
+  {
+    "id": "cappuccino_assassino",
+    "name": "Cappuccino Assassino",
+    "description": "Чашка капучино с двумя катанами и в маске ниндзя. Появляется бесшумно, исчезает с пенкой. Вся его жизнь - месть за остывший кофе.",
+    "superpower": "Удар катаной быстрее, чем остынет кофе",
+    "rarity": "rare",
+    "aura": 7300,
+    "image": "",
+    "sound": "cappuccino_assassino.mp3"
+  },
+  {
+    "id": "trippi_troppi",
+    "name": "Trippi Troppi",
+    "description": "Помесь креветки и кота с подозрительно человеческим лицом. Никто не знает, откуда он взялся, и лучше не спрашивать. Мурлычет, но пахнет морем.",
+    "superpower": "Смотрит в душу без разрешения",
+    "rarity": "common",
+    "aura": 1800,
+    "image": "",
+    "sound": "trippi_troppi.mp3"
+  }
+]
