@@ -85,7 +85,12 @@ void main() {
       expect(Rarity.values.map((r) => r.name), contains(maps[i]['rarity']));
       expect(items[i].description, isNotEmpty);
       expect(items[i].superpower, isNotEmpty);
-      expect(items[i].image, isEmpty);
+      final image = items[i].image;
+      if (image.isNotEmpty) {
+        final fileName = Uri.parse(image).pathSegments.last;
+        expect(fileName.split('.').first, items[i].id);
+        expect(File('images/$fileName').existsSync(), isTrue, reason: 'no images/$fileName in repo');
+      }
       expect(items[i].sound, '${items[i].id}.mp3');
     }
   });
