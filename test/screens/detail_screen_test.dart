@@ -74,6 +74,20 @@ void main() {
     expect(find.text('Звук пока не завезли'), findsOneWidget);
   });
 
+  testWidgets('leaving details stops the sound', (tester) async {
+    final sound = FakeSoundService(result: true);
+    await pumpApp(tester, api: FakeApiService.returns(sampleBrainrots), sound: sound);
+    await tester.pumpAndSettle();
+    await _openFirst(tester);
+    await tester.tap(find.text('Проиграть звук'));
+    await tester.pump();
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+
+    expect(sound.stops, 1);
+  });
+
   testWidgets('played sound shows no snackbar', (tester) async {
     await pumpApp(
       tester,

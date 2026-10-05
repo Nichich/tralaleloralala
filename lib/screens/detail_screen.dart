@@ -28,7 +28,9 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isFavorite = context.watch<FavoritesProvider>().isFavorite(brainrot.id);
+    final isFavorite = context.watch<FavoritesProvider>().isFavorite(
+      brainrot.id,
+    );
     final image = ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio(
@@ -41,49 +43,63 @@ class DetailScreen extends StatelessWidget {
         ),
       ),
     );
-    final info = _DetailInfo(brainrot: brainrot, onPlaySound: () => _playSound(context));
+    final info = _DetailInfo(
+      brainrot: brainrot,
+      onPlaySound: () => _playSound(context),
+    );
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(brainrot.name, maxLines: 1, overflow: TextOverflow.ellipsis),
-        actions: [
-          IconButton(
-            tooltip: isFavorite ? 'Убрать из избранного' : 'В избранное',
-            icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
-            onPressed: () => context.read<FavoritesProvider>().toggle(brainrot.id),
+    return PopScope(
+      // The sound is several seconds long; don't let it follow the user back to the list.
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) context.read<SoundService>().stop();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            brainrot.name,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
-        ],
-      ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final isWide = constraints.maxWidth > constraints.maxHeight;
-            return SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              child: isWide
-                  ? Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(flex: 2, child: image),
-                        const SizedBox(width: 24),
-                        Expanded(flex: 3, child: info),
-                      ],
-                    )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Center(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 400),
-                            child: image,
+          actions: [
+            IconButton(
+              tooltip: isFavorite ? 'Убрать из избранного' : 'В избранное',
+              icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+              onPressed: () =>
+                  context.read<FavoritesProvider>().toggle(brainrot.id),
+            ),
+          ],
+        ),
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final isWide = constraints.maxWidth > constraints.maxHeight;
+              return SingleChildScrollView(
+                padding: const EdgeInsets.all(16),
+                child: isWide
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(flex: 2, child: image),
+                          const SizedBox(width: 24),
+                          Expanded(flex: 3, child: info),
+                        ],
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Center(
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 400),
+                              child: image,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        info,
-                      ],
-                    ),
-            );
-          },
+                          const SizedBox(height: 24),
+                          info,
+                        ],
+                      ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -103,7 +119,12 @@ class _DetailInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(brainrot.name, maxLines: 2, overflow: TextOverflow.ellipsis, style: textTheme.headlineSmall),
+        Text(
+          brainrot.name,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: textTheme.headlineSmall,
+        ),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -131,7 +152,9 @@ class _DetailInfo extends StatelessWidget {
         Text('Лор', style: textTheme.titleMedium),
         const SizedBox(height: 8),
         Text(
-          brainrot.description.isEmpty ? 'Лор утерян в глубинах тиктока' : brainrot.description,
+          brainrot.description.isEmpty
+              ? 'Лор утерян в глубинах тиктока'
+              : brainrot.description,
           style: textTheme.bodyLarge,
         ),
         const SizedBox(height: 24),

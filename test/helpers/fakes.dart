@@ -24,12 +24,16 @@ class FakeSoundService extends SoundService {
 
   final bool result;
   final List<String> played = [];
+  int stops = 0;
 
   @override
   Future<bool> play(String fileName) async {
     played.add(fileName);
     return result;
   }
+
+  @override
+  Future<void> stop() async => stops++;
 
   @override
   Future<void> dispose() async {}
